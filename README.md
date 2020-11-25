@@ -1,4 +1,4 @@
-#Quatnum Computing Ramp Up
+# Quantum Computing Ramp Up
 resources to ramp up on quantum computing
 
 ## Contents
