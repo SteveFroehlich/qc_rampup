@@ -1,6 +1,6 @@
-# qc_rampup
+#Quatnum Computing Ramp Up
 resources to ramp up on quantum computing
 
-## Complex Numbers
-* multiplication
+## Contents
+* [complex numbers](complex_numbers/Readme_complex_numbers.md)
 
