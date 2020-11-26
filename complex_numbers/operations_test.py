@@ -1,5 +1,4 @@
-# test
-from multiply import ComplexNumber
+from operations import ComplexNumber
 
 
 def test_add():
