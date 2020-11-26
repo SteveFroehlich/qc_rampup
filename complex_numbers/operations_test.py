@@ -22,3 +22,14 @@ def test_multiply():
     # then
     assert expected.real == actual.real
     assert expected.imag == actual.imag
+
+
+def test_subtract():
+    x = ComplexNumber(3, 5)
+    y = ComplexNumber(14, 1)
+    expected = ComplexNumber(-11, 4)
+    # when
+    actual = x.subtract(y)
+    # then
+    assert expected.real == actual.real
+    assert expected.imag == actual.imag

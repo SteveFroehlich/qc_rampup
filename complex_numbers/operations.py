@@ -21,6 +21,9 @@ class ComplexNumber:
         real = real + imag
         return ComplexNumber(real, mix)
 
+    def subtract(self, other):
+        return ComplexNumber(self.real - other.real, self.imag - other.imag)
+
 
 def csv_to_number():
     file_name = "numbers.csv"
