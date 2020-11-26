@@ -5,21 +5,10 @@ class ComplexNumber:
         self.imag = imaginary_part
 
     def add(self, other):
-        # add real and imaginary components
-        real = self.real + other.real
-        imag = self.imag + other.imag
-        return ComplexNumber(real, imag)
+        raise Exception("implement me")
 
     def mult(self, other):
-        """
-            (a + bi) * (c + di)
-            a*c + a*di + bi*c + bi*di
-        """
-        real = self.real * other.real
-        imag = -1 * self.imag * other.imag
-        mix = (self.real * other.imag) + (self.imag * other.real)
-        real = real + imag
-        return ComplexNumber(real, mix)
+        raise Exception("implement me")
 
 
 def csv_to_number():
