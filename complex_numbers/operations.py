@@ -31,6 +31,9 @@ class ComplexNumber:
         real = real + imag
         return ComplexNumber(real, mix)
 
+    def to_string(self):
+        return str(self.real) + " + " + str(self.imag) + "i"
+
     def subtract(self, other):
         return ComplexNumber(self.real - other.real, self.imag - other.imag)
 
@@ -51,19 +54,29 @@ class ComplexNumber:
         return ComplexNumber(float(real), float(imag))
 
 
-def csv_to_number():
-    file_name = "numbers.csv"
+def csv_to_number(file_name):
+    """
+        assumes format:
+        x1,x2, y1,y2, expected1,expected2
+    """
     data = []
     with open(file_name) as file:
-        for line in file.readline():
-            left, right = line.split(",")
-            real, op, imag = left.split(" ")
-            cmplx_lt = ComplexNumber(real, imag)
+        for line in file.readlines():
+            line_data = []
+            line = line.strip()
+            if line.startswith("#") or line == "":
+                continue
 
-            real, op, imag = right.split(" ")
-            cmplx_rt = ComplexNumber(real, imag)
-            entry = [cmplx_lt, cmplx_rt]
-            data.append(entry)
+            x, y, exp = line.split(" ")
+            x1, x2 = x.split(",")
+            y1, y2 = y.split(",")
+            exp1, exp2 = exp.split(",")
+
+            line_data.append(ComplexNumber(float(x1), float(x2)))
+            line_data.append(ComplexNumber(float(y1), float(y2)))
+            line_data.append(ComplexNumber(float(exp1), float(exp2)))
+
+            data.append(line_data)
     return data
 
 

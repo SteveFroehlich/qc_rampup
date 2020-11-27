@@ -7,6 +7,7 @@
 """
 from pytest import approx
 from operations import ComplexNumber
+from operations import csv_to_number
 
 # more info on float precision in the pytest.approx
 # docs: https://docs.pytest.org/en/latest/reference.html#pytest-approx
@@ -45,9 +46,18 @@ def test_subtract():
 
 
 def test_divide():
-    x = ComplexNumber(5, 2)
-    y = ComplexNumber(7, 4)
-    expected = ComplexNumber(0.6615, -0.0923)
+    # test data in divide.csv
+    test_data = csv_to_number("divide.csv")
+    for line in test_data:
+        run_divide(line[0], line[1], line[2])
+
+
+def run_divide(x, y, expected):
+    print("running divide test with:")
+    print("   x:        " + x.to_string())
+    print("   y:        " + y.to_string())
+    print("   expected: " + expected.to_string())
+    print("")
     # when
     actual = x.divide(y)
     # then
@@ -59,3 +69,5 @@ def assert_equal(expected, actual):
     expected_imag = approx(expected=expected.imag, rel=FLOAT_PRECISION)
     assert expected_real == actual.real
     assert expected_imag == actual.imag
+
+test_divide()
