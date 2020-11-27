@@ -1,4 +1,16 @@
+"""
+    Tests for each complex operation
+    
+    The tests follow the Given-When-Then
+    structure of writing tests:
+    https://en.wikipedia.org/wiki/Given-When-Then
+"""
+from pytest import approx
 from operations import ComplexNumber
+
+# more info on float precision in the pytest.approx
+# docs: https://docs.pytest.org/en/latest/reference.html#pytest-approx
+FLOAT_PRECISION = 1e-4
 
 
 def test_add():
@@ -9,8 +21,7 @@ def test_add():
     actual = x.add(y)
     # then
     expected = ComplexNumber(9, 8)
-    assert actual.real == expected.real
-    assert actual.imag == expected.imag
+    assert_equal(expected, actual)
 
 
 def test_multiply():
@@ -20,8 +31,7 @@ def test_multiply():
     # when
     actual = x.mult(y)
     # then
-    assert expected.real == actual.real
-    assert expected.imag == actual.imag
+    assert_equal(expected, actual)
 
 
 def test_subtract():
@@ -31,5 +41,21 @@ def test_subtract():
     # when
     actual = x.subtract(y)
     # then
-    assert expected.real == actual.real
-    assert expected.imag == actual.imag
+    assert_equal(expected, actual)
+
+
+def test_divide():
+    x = ComplexNumber(5, 2)
+    y = ComplexNumber(7, 4)
+    expected = ComplexNumber(0.6615, -0.0923)
+    # when
+    actual = x.divide(y)
+    # then
+    assert_equal(expected, actual)
+
+
+def assert_equal(expected, actual):
+    expected_real = approx(expected=expected.real, rel=FLOAT_PRECISION)
+    expected_imag = approx(expected=expected.imag, rel=FLOAT_PRECISION)
+    assert expected_real == actual.real
+    assert expected_imag == actual.imag

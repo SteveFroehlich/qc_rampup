@@ -1,3 +1,13 @@
+"""
+    Data structures and implementations for
+    complex operations
+"""
+import decimal
+from decimal import Decimal
+
+# Set precision to a fixed value
+decimal.getcontext().prec = 10
+
 
 class ComplexNumber:
     def __init__(self, real_part, imaginary_part):
@@ -24,6 +34,22 @@ class ComplexNumber:
     def subtract(self, other):
         return ComplexNumber(self.real - other.real, self.imag - other.imag)
 
+    def divide(self, other):
+        """
+            use to formula for division
+            c1 = a1 + b1
+            c2 = a2 + b2
+            c1/c2 = (a1*a2 + b1*b2)/(a2 + b2) + (a2*b1 + a1*b2)/(a2 + b2)i
+
+            Values are wrapped in Decimal to control precision and avoid
+            loss due to floating point arithmetic. They are converted back
+            to float to be consistent with test values for assertions
+        """
+        denominator = Decimal(other.real**2 + other.imag**2)
+        real = Decimal(self.real*other.real + self.imag*other.imag)/denominator
+        imag = Decimal(other.real*self.imag - self.real*other.imag)/denominator
+        return ComplexNumber(float(real), float(imag))
+
 
 def csv_to_number():
     file_name = "numbers.csv"
@@ -43,7 +69,7 @@ def csv_to_number():
 
 def main():
     # read in csv of numbers
-    # iterate through calling mult and saving result in list
+    # iterate through calling operation and saving result in list
     # output list of results
     pass
 
