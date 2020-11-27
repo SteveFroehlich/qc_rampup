@@ -32,14 +32,23 @@ class ComplexNumber:
         return ComplexNumber(real, mix)
 
     def subtract(self, other):
-        raise Exception("implement me")
+        return ComplexNumber(self.real - other.real, self.imag - other.imag)
 
     def divide(self, other):
-        # hint: wrap values in Decimal objects to avoid precision loss
-        # eg. self_real = Decimal(self.real), other_real = Decimal(other.real)
-        # return statement should convert back to float for consistency
-        # eg. return ComplexNumber(float(real_result), float(imag_result))
-        raise Exception("implement me")
+        """
+            use to formula for division
+            c1 = a1 + b1
+            c2 = a2 + b2
+            c1/c2 = (a1*a2 + b1*b2)/(a2 + b2) + (a2*b1 + a1*b2)/(a2 + b2)i
+
+            Values are wrapped in Decimal to control precision and avoid
+            loss due to floating point arithmetic. They are converted back
+            to float to be consistent with test values for assertions
+        """
+        denominator = Decimal(other.real**2 + other.imag**2)
+        real = Decimal(self.real*other.real + self.imag*other.imag)/denominator
+        imag = Decimal(other.real*self.imag - self.real*other.imag)/denominator
+        return ComplexNumber(float(real), float(imag))
 
 
 def csv_to_number():
