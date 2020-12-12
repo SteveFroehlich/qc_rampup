@@ -1,0 +1,88 @@
+- banner:
+  - headline: "Matrix Operations"
+  - description: "Base operations and arithmetic on matrices"
+
+- material:
+  - markdown: |
+      ## Addition and Subtraction
+      Addition and subtraction operate per component. For example
+      given the 3 x 3 Matrices
+  - math: |
+      \left(\begin{matrix}
+                     1 & 3 & 2 \\
+                     6 & 1 & 3
+                   \end{matrix}\right)
+                   +
+                   \left(\begin{matrix}
+                     1 & 3 & 5 \\
+                     7 & 2 & 4
+                   \end{matrix}\right)
+                   = ?
+  - markdown: |
+      Since each position in the first matrix is added to
+      the corresponding postion in the second matrix we have
+  - math: |
+      \left(\begin{matrix}
+                  1 + 1 & 3 + 3 & 2 + 5 \\
+                  6 + 7 & 1 + 2 & 3 + 4
+      \end{matrix}\right)
+  - markdown: "So the final solution is:"
+  - math: |
+      \left(\begin{matrix}
+                  2 & 6 & 7 \\
+                  13 & 3 & 7
+      \end{matrix}\right)
+  - markdown: |
+      Subtraction follows the same pattern. Note it is not possible to
+      add or subtract matrices of different sizes. For example the below
+      matrices are 2x2 and 3x3 so they could not be added or subtracted
+  - math: |
+      \left(\begin{matrix}
+                      4 & -1 \\
+                      2 & 5
+                    \end{matrix}\right)
+                    +
+                    \left(\begin{matrix}
+                      2 & 7 & 1 \\
+                      9 & 7 & 8
+      \end{matrix}\right)
+  - markdown: |
+      ## Multiplication
+      To multiple two matrices together the first matrix has to have
+      the number of rows match the number of columns in the second matrix.
+      For example:
+  - math: |
+      \left(\begin{matrix}
+                      1 & 7 \\
+                      2 & 4
+                    \end{matrix}\right)
+                    \times
+                    \left(\begin{matrix}
+                      3 & 3 \\
+                      5 & 2
+                    \end{matrix}\right)
+                    = ?
+  - markdown: |
+      The first matrix rows will mutliple against the seconds columns.
+  - math: |
+      \left(\begin{matrix}
+                        (1)(3) + (7)(5) & (1)(3) + (7)(3) \\
+                        (2)(3) + (5)(4) & (2)(3) + (4)(2)
+      \end{matrix}\right)
+  - markdown: "which equals"
+  - math: |
+      \left(\begin{matrix}
+                       38 & 17 \\
+                       26 & 14
+      \end{matrix}\right)
+
+
+- tests:
+  - title: "Questions and Exercises"
+  - text: |
+      Euler's formula relates exponentials (e^x) and sin/cos.
+      The formula is:
+  - math: |
+      e^{i \theta} = \cos(\theta) + i\sin(\theta) \\
+      e^{-i \theta} = \cos(\theta) - i\sin(\theta)
+
