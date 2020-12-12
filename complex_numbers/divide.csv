@@ -1,3 +1,4 @@
+# format is: c1 c2 c-expected. For example:
 # x1,x2, y1,y2, expected1,expected2
  5,2 7,4 0.6615,-0.0923
 -2,1 1,2 0,1

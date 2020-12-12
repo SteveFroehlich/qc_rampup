@@ -3,21 +3,58 @@
   - description: "Topics from complex number theory needed for Quantum Computing"
 
 - material:
-  - title: "Prove the Complex Division Formula"
-  - text: "Given the division definition:"
+  - markdown: |
+      ### Addition and Subtraction
+      Addition and subtraction operate per component. For example
+      given the complex numbers
   - math: |
-      (x,y) = \frac{(a_{1},b_{1})}{(a_{2},b_{2})}
-  - text: "Prove that leads to the formula:"
+      c_{1} = 4 + 9i \\
+      c_{2} = 5 - 2i
+  - markdown: "then c1 + c2 equals the complex number c3:"
   - math: |
-      \frac{a_{1} + b_{1}i}{a_{2} + b_{2}i} =
-      \frac{a_{1}a_{2} + b_{1}b_{2}}{a_{2}^2 + b_{2}^2}
-      + \frac{a_{2}b_{1} - a_{1}b_{2}}{a_{2}^2 + b_{2}^2}i
+      c_{3} = (4 + 5) + (9 - 2)i = 9 + 7i
+  - markdown: "Similarly if we subtract c1 - c2:"
+  - math: |
+      c_{3} = (4 - 5) + (9 - ({-2}))i = {-1} + 11i
+  - markdown: "If we multiply c1 times c2 it takes the form:"
+  - math: |
+      c_{3} = (4 \times 5) - (9 \times {-2}) + i((4 \times {-2}) + (5 \times 9)) \\
+      \quad = 38 + 37i
+
+  - video: "https://eight-ord-static-files.s3.amazonaws.com/ComplexDivision.mp4"
+
 
 - tests:
-  - title: "Solution Proof"
-  - text: "Because division is the inverse of multiplication"
+  - markdownfile: "Readme_complex_num_exercises.md"
+#  - markdown: "### Division Proof"
+#  - text: "Given the division definition:"
+#  - math: |
+#      (x,y) = \frac{(a_{1},b_{1})}{(a_{2},b_{2})}
+#  - text: "Prove that leads to the formula:"
+#  - math: |
+#      \frac{a_{1} + b_{1}i}{a_{2} + b_{2}i} =
+#      \frac{a_{1}a_{2} + b_{1}b_{2}}{a_{2}^2 + b_{2}^2}
+#      + \frac{a_{2}b_{1} - a_{1}b_{2}}{a_{2}^2 + b_{2}^2}i
+#  - text: "Because division is the inverse of multiplication"
+#  - math: |
+#      (a_{1},b_{1}) = (x,y) \times (a_{2}, b_{2})
+#  - text: "Distributing yields"
+#  - math: |
+#      (a_{1},b_{1}) = (a_{2}x - b_{2}y, a_{2}y + b_{2}x)
+
+- material:
+  - title: "Euler's formula"
+  - text: |
+      Euler's formula relates exponentials (e^x) and sin/cos.
+      The formula is:
   - math: |
-      (a_{1},b_{1}) = (x,y) \times (a_{2}, b_{2})
-  - text: "Distributing yields"
+      e^{i \theta} = \cos(\theta) + i\sin(\theta) \\
+      e^{-i \theta} = \cos(\theta) - i\sin(\theta)
+
+  - text: |
+      You can add and subtract the two above equations to get
+      expressions for both cos and sin:
   - math: |
-      (a_{1},b_{1}) = (a_{2}x - b_{2}y, a_{2}y + b_{2}x)
+      cos(x) = \frac{e^{i\theta} + e^{-i\theta}}{2}  \quad \quad
+      sin(x) = \frac{e^{i\theta} - e^{-i\theta}}{2i}
+
