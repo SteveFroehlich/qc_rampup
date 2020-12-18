@@ -64,6 +64,9 @@ def run_divide(x, y, expected):
     assert_equal(expected, actual)
 
 
+# add test for complex conjugate ?
+
+
 def assert_equal(expected, actual):
     expected_real = approx(expected=expected.real, rel=FLOAT_PRECISION)
     expected_imag = approx(expected=expected.imag, rel=FLOAT_PRECISION)

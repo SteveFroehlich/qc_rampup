@@ -16,11 +16,16 @@
   - markdown: "Similarly if we subtract c1 - c2:"
   - math: |
       c_{3} = (4 - 5) + (9 - ({-2}))i = {-1} + 11i
+  - markdown: "### Multiplication"
   - markdown: "If we multiply c1 times c2 it takes the form:"
   - math: |
       c_{3} = (4 \times 5) - (9 \times {-2}) + i((4 \times {-2}) + (5 \times 9)) \\
       \quad = 38 + 37i
 
+  - markdown: |
+      ### Division
+      Division is a little more complex so there is a quick video
+      to display for formula.
   - video: "https://eight-ord-static-files.s3.amazonaws.com/ComplexDivision.mp4"
 
 
